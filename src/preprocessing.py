@@ -26,11 +26,19 @@ def preprocess_data(df):
             "show_id",
             "title",
             "drop_off_probability",
-            "dataset_version"
+            "dataset_version",
+            "avg_watch_percentage",
+            "cognitive_load",
+            "retention_risk"
         ]
+
 
         logger.info("Dropping leakage / identifier columns")
         X = df.drop(drop_cols, axis=1, errors="ignore")
+
+        print("Columns in X:")
+        print(X.columns)
+
 
         # encode categorical features
         logger.info("Encoding categorical columns")
